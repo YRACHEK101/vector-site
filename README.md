@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://REPLACE-WITH-YOUR-SCREENSHOT-URL" alt="Vector landing site" width="880" />
+  <img src="Screenshot%202026-06-21%20at%2004.06.09.png" alt="Vector landing site" width="880" />
 </p>
 
 <h1 align="center">Vector — Landing Site</h1>
