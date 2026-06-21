@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="https://vector-site-beryl.vercel.app"><strong>Visit the live site →</strong></a>
+  <a href="https://vector-snowy-iota.vercel.app/"><strong>Visit the live site →</strong></a>
 </p>
 
 ---
