@@ -6,6 +6,8 @@ restores the author's contribution graph.
 
 > Move your repos from Azure DevOps to GitHub — without losing your green squares.
 
+![Vector landing site — hero section](Screenshot%202026-06-21%20at%2004.06.09.png)
+
 This is the website only. The CLI itself lives at
 [github.com/YRACHEK101/Vector](https://github.com/YRACHEK101/Vector).
 
