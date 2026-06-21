@@ -1,7 +1,7 @@
 // Single source of truth for site-wide constants.
 
 /** Canonical GitHub repository for Vector. Every GitHub link points here. */
-export const REPO_URL = "https://github.com/YRACHEK101/Vectora";
+export const REPO_URL = "https://github.com/YRACHEK101/Vector";
 
 /** The npm package name. */
 export const NPM_PACKAGE = "vector-migrate";

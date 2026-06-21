@@ -7,7 +7,7 @@ restores the author's contribution graph.
 > Move your repos from Azure DevOps to GitHub — without losing your green squares.
 
 This is the website only. The CLI itself lives at
-[github.com/YRACHEK101/Vectora](https://github.com/YRACHEK101/Vectora).
+[github.com/YRACHEK101/Vector](https://github.com/YRACHEK101/Vector).
 
 ## Tech stack
 
