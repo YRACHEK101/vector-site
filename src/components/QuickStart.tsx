@@ -1,12 +1,6 @@
 import { Reveal } from "./Reveal";
-import { CopyButton } from "./CopyButton";
 import { Code } from "./Code";
-
-const SNIPPET = `# install the one system dependency
-brew install git-filter-repo        # macOS  (Linux: sudo apt install git-filter-repo)
-
-# run the interactive wizard — no install required
-npx vector-migrate`;
+import { OsTabs } from "./OsTabs";
 
 export function QuickStart() {
   return (
@@ -27,36 +21,22 @@ export function QuickStart() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.1}>
-          <div className="relative overflow-hidden rounded-2xl border border-edge bg-panel/80 shadow-[0_24px_70px_-30px_rgba(0,0,0,0.85)]">
-            <div className="flex items-center gap-2 border-b border-edge px-4 py-3">
-              <span className="h-3 w-3 rounded-full bg-[#ff5f57]" aria-hidden="true" />
-              <span className="h-3 w-3 rounded-full bg-[#febc2e]" aria-hidden="true" />
-              <span className="h-3 w-3 rounded-full bg-[#28c840]" aria-hidden="true" />
-              <span className="ml-2 font-mono text-xs text-muted">bash</span>
-              <CopyButton
-                value={SNIPPET}
-                ariaLabel="Copy quick start commands"
-                copiedLabel="Copied"
-                iconSize={15}
-                className="ml-auto inline-flex items-center gap-1.5 rounded-md border border-edge-soft bg-canvas px-2.5 py-1 font-mono text-xs text-muted transition-colors hover:text-fg"
-              />
-            </div>
-            <pre className="overflow-x-auto px-5 py-5 font-mono text-sm leading-relaxed">
-              <code>
-                <span className="text-muted"># install the one system dependency</span>
-                {"\n"}
-                <span className="text-acc-bright">brew</span>
-                <span className="text-fg"> install git-filter-repo</span>
-                <span className="text-muted">{"        # macOS  (Linux: sudo apt install git-filter-repo)"}</span>
-                {"\n\n"}
-                <span className="text-muted"># run the interactive wizard — no install required</span>
-                {"\n"}
-                <span className="text-acc-bright">npx</span>
-                <span className="text-fg"> vector-migrate</span>
-              </code>
-            </pre>
+        <Reveal delay={0.1} className="space-y-4">
+          <div className="rounded-xl border border-edge bg-panel/40 p-4">
+            <p className="text-sm leading-relaxed text-muted">
+              <span className="font-medium text-fg">New here?</span> Run{" "}
+              <Code>vector-migrate --check</Code> first — it verifies <Code>git</Code> and{" "}
+              <Code>git-filter-repo</Code> are installed and prints exact, OS-specific install
+              instructions if anything is missing.
+            </p>
           </div>
+
+          <OsTabs />
+
+          <p className="text-sm leading-relaxed text-muted">
+            Prefer a global install? <Code>npm install -g vector-migrate</Code>, then run{" "}
+            <Code>vector-migrate</Code> anywhere.
+          </p>
         </Reveal>
       </div>
     </section>

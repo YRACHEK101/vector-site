@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { Problems } from "@/components/Problems";
 import { HowItWorks } from "@/components/HowItWorks";
 import { QuickStart } from "@/components/QuickStart";
+import { AutomateCI } from "@/components/AutomateCI";
 import { Safety } from "@/components/Safety";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
@@ -22,6 +23,7 @@ export default function Home() {
         <Problems />
         <HowItWorks />
         <QuickStart />
+        <AutomateCI />
         <Safety />
         <CTA />
       </main>
