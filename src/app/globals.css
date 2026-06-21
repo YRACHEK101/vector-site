@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/*
+ * Vector design tokens — a confident dark developer-tool palette.
+ * Dark canvas, GitHub contribution-green accent used sparingly.
+ */
+@theme {
+  --color-canvas: #0d1117;
+  --color-panel: #161b22;
+  --color-panel-2: #1b2230;
+  --color-edge: #2c3442;
+  --color-edge-soft: #30363d;
+  --color-fg: #e6edf3;
+  --color-muted: #8b949e;
+  --color-acc: #26a641;
+  --color-acc-bright: #39d353;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", "JetBrains Mono",
+    Menlo, Consolas, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Keep anchor targets clear of the sticky nav. */
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-acc-bright) 30%, transparent);
+  color: #ffffff;
+}
+
+/* Consistent, visible keyboard focus across the whole site. */
+:focus-visible {
+  outline: 2px solid var(--color-acc-bright);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Dark, unobtrusive scrollbar to match the theme. */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: #262c36;
+  border: 3px solid var(--color-canvas);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-edge-soft);
+}
+
+/* Utility: faint grid/glow background used behind the hero. */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(48, 54, 61, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(48, 54, 61, 0.35) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
