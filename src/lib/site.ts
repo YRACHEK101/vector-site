@@ -6,6 +6,9 @@ export const REPO_URL = "https://github.com/YRACHEK101/Vector";
 /** The npm package name. */
 export const NPM_PACKAGE = "vector-migrate";
 
+/** The package's page on npm. */
+export const NPM_URL = "https://www.npmjs.com/package/vector-migrate";
+
 /** The one-line install/run command shown in the hero and quick start. */
 export const INSTALL_COMMAND = "npx vector-migrate";
 

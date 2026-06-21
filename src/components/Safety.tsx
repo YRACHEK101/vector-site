@@ -1,4 +1,4 @@
-import { Fingerprint, KeyRound, RefreshCw, ShieldCheck, type LucideIcon } from "lucide-react";
+import { Fingerprint, KeyRound, RefreshCw, ShieldCheck, Users, type LucideIcon } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 type Guarantee = {
@@ -55,6 +55,23 @@ export function Safety() {
             );
           })}
         </div>
+
+        <Reveal>
+          <div className="mt-5 flex items-start gap-4 rounded-2xl border border-edge bg-panel/50 p-6">
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-edge bg-canvas text-acc-bright">
+              <Users size={20} aria-hidden="true" />
+            </span>
+            <div>
+              <h3 className="text-base font-semibold tracking-tight">
+                Solo or team — one auto-detecting flow
+              </h3>
+              <p className="mt-1 text-sm leading-relaxed text-muted">
+                It scans every author, defaults to mapping just you, and lets you remap teammates
+                when you need to.
+              </p>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

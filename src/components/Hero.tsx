@@ -1,10 +1,10 @@
-import { Terminal } from "lucide-react";
+import { Package, Terminal } from "lucide-react";
 import { Logo } from "./Logo";
 import { GitHubButton } from "./GitHubButton";
 import { CopyButton } from "./CopyButton";
 import { ContributionGrid } from "./ContributionGrid";
 import { Reveal } from "./Reveal";
-import { INSTALL_COMMAND, SITE_NAME } from "@/lib/site";
+import { EXTERNAL_LINK_PROPS, INSTALL_COMMAND, NPM_URL, SITE_NAME } from "@/lib/site";
 
 const PILLS = ["Interactive", "Zero-Token", "Non-Destructive"];
 
@@ -72,8 +72,17 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={0.25}>
-            <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+            <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <GitHubButton size="lg" />
+              <a
+                href={NPM_URL}
+                {...EXTERNAL_LINK_PROPS}
+                aria-label="View vector-migrate on npm"
+                className="inline-flex h-13 items-center justify-center gap-2.5 rounded-xl border border-edge-soft bg-panel/60 px-6 text-base font-medium text-fg transition-all duration-200 hover:-translate-y-0.5 hover:border-acc/50 hover:bg-panel"
+              >
+                <Package size={18} aria-hidden="true" />
+                npm
+              </a>
               <CopyButton
                 value={INSTALL_COMMAND}
                 ariaLabel="Copy install command"

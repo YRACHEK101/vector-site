@@ -26,7 +26,7 @@ const STAGES: Stage[] = [
     icon: <GitFork size={20} aria-hidden="true" />,
     node: "Local staging copy",
     title: "Rebuild + rewrite",
-    body: "Rebuild a disposable staging copy with git-filter-repo --mailmap — deterministically mapping your old email to your new identity. Teammates' commits stay exactly as they were.",
+    body: "Rebuild a disposable staging copy with git-filter-repo --mailmap — deterministically mapping your old email to your new identity. Unmapped authors stay exactly as they were — and you can remap teammates too when migrating a shared repo.",
     cmd: "git filter-repo --mailmap",
   },
   {

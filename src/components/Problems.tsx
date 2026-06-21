@@ -18,9 +18,10 @@ const PROBLEMS: Problem[] = [
         GitHub only lights up your contribution graph for commits whose author email is verified
         on your account. A normal migration carries corporate-email commits over as unattributed
         &ldquo;ghosts,&rdquo; so months or years of real work never show up as green squares.
-        Vector rewrites <em className="not-italic text-fg">only your old corporate identity</em> to
-        your personal, verified identity — leaving teammates&rsquo; commits untouched — so your
-        history counts again, at its original dates.
+        Vector rewrites your old corporate identity to your personal, verified one — and{" "}
+        <em className="not-italic text-fg">by default leaves everyone else untouched</em>. Migrating
+        a shared repo? Map your whole team in the same flow; each developer keeps attribution at
+        their original dates.
       </>
     ),
   },
