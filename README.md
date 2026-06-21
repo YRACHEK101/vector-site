@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/vector-logo.svg" alt="Vector logo" width="96" height="96" />
+  <img src="https://REPLACE-WITH-YOUR-SCREENSHOT-URL" alt="Vector landing site" width="880" />
 </p>
 
 <h1 align="center">Vector — Landing Site</h1>
@@ -39,14 +39,6 @@ The page walks a visitor through the whole story of Vector:
 
 The design is dark and developer-focused, with a GitHub-style contribution-green accent that ties
 back to the "keep your green squares" idea at the heart of the tool.
-
-## Screenshot
-
-<p align="center">
-  <img src="docs/screenshot.png" alt="Vector landing site — hero section" width="820" />
-</p>
-
-> Add your screenshot at `docs/screenshot.png`, or remove this section.
 
 ## License
 
