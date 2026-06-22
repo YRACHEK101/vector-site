@@ -49,7 +49,7 @@ export function Nav() {
           className="flex items-center gap-2.5 rounded-lg"
           aria-label={`${SITE_NAME} — home`}
         >
-          <Logo size={30} />
+          <Logo size={30} uid="nav" />
           <span className="text-lg font-semibold tracking-tight">{SITE_NAME}</span>
         </a>
 

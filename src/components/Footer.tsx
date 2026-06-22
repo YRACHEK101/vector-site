@@ -9,7 +9,7 @@ export function Footer() {
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-sm">
             <div className="flex items-center gap-2.5">
-              <Logo size={28} />
+              <Logo size={28} uid="footer" />
               <span className="text-base font-semibold tracking-tight">{SITE_NAME}</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-muted">{TAGLINE}</p>

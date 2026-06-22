@@ -31,7 +31,7 @@ export function Hero() {
             <h1 className="mt-6 flex items-center gap-4">
               <Logo
                 size={60}
-                priority
+                uid="hero"
                 className="drop-shadow-[0_8px_24px_rgba(38,166,65,0.25)]"
               />
               <span className="text-6xl font-semibold tracking-tighter sm:text-7xl">

@@ -43,6 +43,12 @@ body {
   html {
     scroll-behavior: auto;
   }
+  /* Guarantee the contribution grid is fully visible when motion is reduced,
+     overriding any animation start-state inline styles. */
+  [data-contrib-grid] rect {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 ::selection {

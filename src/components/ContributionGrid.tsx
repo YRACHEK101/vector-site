@@ -47,24 +47,34 @@ export function ContributionGrid({ className }: { className?: string }) {
       preserveAspectRatio="xMidYMid meet"
       role="img"
       aria-label="A GitHub-style contribution grid filling in with green squares"
+      data-contrib-grid
       className={className}
     >
       {cells.map(({ r, c, level }) => {
+        const rectProps = {
+          x: c * STEP,
+          y: r * STEP,
+          width: SIZE,
+          height: SIZE,
+          rx: 2.5,
+          fill: FILL[level],
+          stroke: level === 0 ? "#21262d" : "transparent",
+          strokeWidth: 1,
+        };
+
+        // Reduced motion: render a plain, fully-visible square (no animation).
+        if (reduce) {
+          return <rect key={`${r}-${c}`} {...rectProps} />;
+        }
+
         // Diagonal sweep, left-to-right.
         const delay = (c + r * 0.35) * 0.03;
         return (
           <motion.rect
             key={`${r}-${c}`}
-            x={c * STEP}
-            y={r * STEP}
-            width={SIZE}
-            height={SIZE}
-            rx={2.5}
-            fill={FILL[level]}
-            stroke={level === 0 ? "#21262d" : "transparent"}
-            strokeWidth={1}
-            initial={reduce ? false : { opacity: 0, scale: 0.4 }}
-            whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
+            {...rectProps}
+            initial={{ opacity: 0, scale: 0.4 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay, duration: 0.4, ease: "easeOut" }}
             style={{ transformOrigin: "center", transformBox: "fill-box" }}
