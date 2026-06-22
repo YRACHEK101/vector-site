@@ -67,15 +67,16 @@ export function ContributionGrid({ className }: { className?: string }) {
           return <rect key={`${r}-${c}`} {...rectProps} />;
         }
 
-        // Diagonal sweep, left-to-right.
+        // Diagonal sweep, left-to-right. Animate on mount (not on in-view) so the
+        // squares are guaranteed to reach their visible resting state regardless
+        // of scroll position or viewport — fixes empty grid on mobile.
         const delay = (c + r * 0.35) * 0.03;
         return (
           <motion.rect
             key={`${r}-${c}`}
             {...rectProps}
             initial={{ opacity: 0, scale: 0.4 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ delay, duration: 0.4, ease: "easeOut" }}
             style={{ transformOrigin: "center", transformBox: "fill-box" }}
           />

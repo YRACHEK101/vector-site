@@ -19,6 +19,9 @@ export function QuickStart() {
             <span className="font-medium text-fg">Requirements:</span> <Code>Node.js ≥ 18</Code>,{" "}
             <Code>git</Code>, and <Code>git-filter-repo</Code>.
           </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted">
+            Requires SSH access to GitHub — run <Code>vector-migrate --check</Code> to verify.
+          </p>
         </Reveal>
 
         <Reveal delay={0.1} className="space-y-4">

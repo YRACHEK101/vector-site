@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { GitHubButton } from "./GitHubButton";
-import { SITE_NAME } from "@/lib/site";
+import { EXTERNAL_LINK_PROPS, SITE_NAME } from "@/lib/site";
 
-const LINKS = [
+const LINKS: { href: string; label: string; external?: boolean }[] = [
   { href: "#how-it-works", label: "How it works" },
   { href: "#problems", label: "Features" },
   { href: "#quick-start", label: "Quick start" },
+  { href: "https://github.com/YRACHEK101/Vector#readme", label: "Docs", external: true },
 ];
 
 export function Nav() {
@@ -58,6 +59,7 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
+              {...(l.external ? EXTERNAL_LINK_PROPS : {})}
               className="rounded-lg px-3.5 py-2 text-sm text-muted transition-colors hover:text-fg"
             >
               {l.label}
@@ -90,6 +92,7 @@ export function Nav() {
               <a
                 key={l.href}
                 href={l.href}
+                {...(l.external ? EXTERNAL_LINK_PROPS : {})}
                 onClick={() => setOpen(false)}
                 className="rounded-lg px-3 py-3 text-base text-fg/90 transition-colors hover:bg-panel"
               >

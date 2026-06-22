@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  useEffect,
   useId,
   useRef,
   useState,
@@ -39,14 +40,12 @@ const TABS: OsTab[] = [
   {
     id: "linux",
     label: "Linux",
-    copy: "sudo apt update && sudo apt install -y git git-filter-repo\nnpx vector-migrate",
+    copy: "sudo apt install git-filter-repo\nnpx vector-migrate",
     copyAriaLabel: "Copy Linux install commands",
     content: (
       <>
         <span className="text-acc-bright">sudo</span>
-        <span className="text-fg"> apt update && sudo apt install -y git git-filter-repo</span>
-        {"\n"}
-        <span className="text-muted">{"# any distro, via pip:  pip3 install --user git-filter-repo"}</span>
+        <span className="text-fg"> apt install git-filter-repo</span>
         {"\n"}
         <span className="text-acc-bright">npx</span>
         <span className="text-fg"> vector-migrate</span>
@@ -73,9 +72,27 @@ const TABS: OsTab[] = [
 ];
 
 export function OsTabs() {
+  // Server renders the macOS default (index 0); detect the real OS after mount
+  // so there is no hydration mismatch (never read navigator during render).
   const [active, setActive] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const baseId = useId();
+
+  useEffect(() => {
+    const nav = navigator as Navigator & { userAgentData?: { platform?: string } };
+    const platform = (nav.userAgentData?.platform || navigator.userAgent || "").toLowerCase();
+    let id: string | null = null;
+    if (/win/.test(platform)) id = "windows";
+    else if (/linux|android/.test(platform)) id = "linux";
+    else if (/mac|iphone|ipad|ipod/.test(platform)) id = "macos";
+    if (id) {
+      const idx = TABS.findIndex((t) => t.id === id);
+      // OS must be detected client-side after mount (reading navigator during
+      // render would cause a hydration mismatch), so setState in an effect is intended here.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      if (idx >= 0) setActive(idx);
+    }
+  }, []);
 
   const onKeyDown = (e: ReactKeyboardEvent<HTMLButtonElement>) => {
     const last = TABS.length - 1;
