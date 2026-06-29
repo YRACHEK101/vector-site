@@ -28,7 +28,8 @@ export function QuickStart() {
           <div className="rounded-xl border border-edge bg-panel/40 p-4">
             <p className="text-sm leading-relaxed text-muted">
               <span className="font-medium text-fg">New here?</span> Run{" "}
-              <Code>vector-migrate --check</Code> first — it verifies <Code>git</Code> and{" "}
+              <Code>vector-migrate --doctor</Code> for a full PASS/FAIL environment check (or{" "}
+              <Code>--check</Code> for a quick verify) — it confirms <Code>git</Code> and{" "}
               <Code>git-filter-repo</Code> are installed and prints exact, OS-specific install
               instructions if anything is missing.
             </p>
