@@ -1,4 +1,13 @@
-import { Fingerprint, KeyRound, RefreshCw, ShieldCheck, Users, type LucideIcon } from "lucide-react";
+import {
+  BadgeCheck,
+  Fingerprint,
+  KeyRound,
+  RefreshCw,
+  ShieldCheck,
+  UserCheck,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 import { Reveal } from "./Reveal";
 
 type Guarantee = {
@@ -26,7 +35,17 @@ const GUARANTEES: Guarantee[] = [
   {
     icon: RefreshCw,
     title: "Incremental",
-    body: "Re-run as work continues on Azure; only the new delta is fetched and pushed.",
+    body: "Re-run as work continues on the source; only the new delta is fetched and pushed.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Verified, not assumed",
+    body: "After every push, Vector re-checks the destination against your migrated history across three axes — the full ref set (branches and tags), every ref-tip SHA, and the reachable commit count — and refuses to report success on any mismatch. You don't have to trust that it worked; it proves it.",
+  },
+  {
+    icon: UserCheck,
+    title: "Never the wrong person",
+    body: "Vector only rewrites an author into your identity when it actually matched you — by email, name, git config, or your GitHub username. Migrating a repo you didn't contribute to? It detects that and skips the rewrite, keeping every author untouched, instead of making you pick a stranger.",
   },
 ];
 
@@ -41,7 +60,7 @@ export function Safety() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-edge bg-edge sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-edge bg-edge sm:grid-cols-2 lg:grid-cols-3">
           {GUARANTEES.map((g, i) => {
             const Icon = g.icon;
             return (

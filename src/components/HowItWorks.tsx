@@ -47,6 +47,24 @@ const BRANCH_STRATEGIES = [
   "confirm-on-divergence",
 ];
 
+const MODES: { letter: string; route: string; body: string }[] = [
+  {
+    letter: "A",
+    route: "Azure DevOps → GitHub",
+    body: "Full history with your old corporate identity rewritten to your verified one.",
+  },
+  {
+    letter: "B",
+    route: "Azure DevOps → GitHub",
+    body: "Mirror-only — every commit carried over verbatim, nothing rewritten.",
+  },
+  {
+    letter: "C",
+    route: "GitHub → GitHub",
+    body: "Move or re-attribute history between accounts.",
+  },
+];
+
 export function HowItWorks() {
   return (
     <section id="how-it-works" className="border-t border-edge/50">
@@ -97,6 +115,33 @@ export function HowItWorks() {
             </Fragment>
           ))}
         </div>
+
+        <Reveal delay={0.1}>
+          <div className="mt-8 rounded-2xl border border-edge bg-panel/40 p-6 sm:p-7">
+            <h3 className="text-sm font-semibold tracking-tight">One tool, three modes</h3>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">
+              The flow above is the default Azure-to-GitHub path, but Vector isn&rsquo;t only an
+              Azure tool. The same deterministic engine runs three migration modes — pick one with{" "}
+              <span className="font-mono text-fg/90">--mode</span>.
+            </p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              {MODES.map((m) => (
+                <div
+                  key={m.letter}
+                  className="flex items-start gap-3 rounded-xl border border-edge bg-canvas p-4"
+                >
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-edge bg-panel font-mono text-xs font-semibold text-acc-bright">
+                    {m.letter}
+                  </span>
+                  <div>
+                    <p className="text-sm font-medium tracking-tight text-fg">{m.route}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-muted">{m.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
 
         <Reveal delay={0.1}>
           <div className="mt-8 rounded-2xl border border-edge bg-panel/40 p-6 sm:p-7">

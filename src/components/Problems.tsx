@@ -1,4 +1,4 @@
-import { Activity, KeyRound, TimerReset, type LucideIcon } from "lucide-react";
+import { Activity, HardDrive, KeyRound, TimerReset, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
 import { Code } from "./Code";
@@ -47,6 +47,20 @@ const PROBLEMS: Problem[] = [
       </>
     ),
   },
+  {
+    icon: HardDrive,
+    title: "The 100 MB Wall",
+    body: (
+      <>
+        GitHub hard-rejects any file over 100 MB found anywhere in history — and only at the final
+        push, after the whole mirror and rewrite are done. One stray build artifact or{" "}
+        <Code>.AppImage</Code> can sink an otherwise-perfect migration with a cryptic{" "}
+        <Code>GH001</Code> error. Vector scans your full history before pushing, names each offending
+        file and size, and — by default in <Code>--force</Code>/CI — strips them from history (or
+        moves them to Git LFS), so the push just succeeds. No surprise failure at the finish line.
+      </>
+    ),
+  },
 ];
 
 export function Problems() {
@@ -56,16 +70,16 @@ export function Problems() {
         <Reveal>
           <p className="font-mono text-sm text-acc-bright">The problem</p>
           <h2 className="mt-3 max-w-2xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-            A naïve migration quietly costs you three things.
+            A naïve migration quietly costs you four things.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-            Moving from Azure DevOps to GitHub looks like a plain <Code>git push</Code> — until your
-            graph goes dark, a token leaks, or a big repo stalls. Vector is built around exactly
-            these failure modes.
+            Moving repos to GitHub looks like a plain <Code>git push</Code> — until your graph goes
+            dark, a token leaks, a big repo stalls, or one oversized file kills the push at the very
+            end. Vector is built around exactly these failure modes.
           </p>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {PROBLEMS.map((p, i) => {
             const Icon = p.icon;
             return (

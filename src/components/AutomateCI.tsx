@@ -1,5 +1,6 @@
 import { Reveal } from "./Reveal";
 import { Terminal } from "./Terminal";
+import { Code } from "./Code";
 import { EXTERNAL_LINK_PROPS, REPO_URL } from "@/lib/site";
 
 const CI_SNIPPET = `vector-migrate --non-interactive \\
@@ -9,6 +10,14 @@ const CI_SNIPPET = `vector-migrate --non-interactive \\
   --new-name   "your-github-username" \\
   --new-email  "you@personal.com" \\
   --branch master --branch main`;
+
+const CI_SNIPPET_GH = `# GitHub → GitHub, auto-handle >100 MB files, and skip the rewrite if you're not a contributor:
+vector-migrate --force \\
+  --mode c \\
+  --source "git@github.com:old-org/repo.git" \\
+  --dest   "git@github.com:you/repo.git" \\
+  --on-large-file strip \\
+  --skip-identity`;
 
 export function AutomateCI() {
   return (
@@ -21,11 +30,12 @@ export function AutomateCI() {
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
             Every interactive prompt also has a flag and an environment variable, so you can skip
-            the wizard entirely.
+            the wizard entirely. Add <Code>--sync</Code> to re-run incrementally, <Code>--dry-run</Code>{" "}
+            to preview without pushing, or <Code>--json</Code> for machine-readable output.
           </p>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-8">
+        <Reveal delay={0.1} className="mt-8 space-y-4">
           <Terminal
             label="bash"
             copyValue={CI_SNIPPET}
@@ -56,7 +66,35 @@ export function AutomateCI() {
             {"\n"}
             <span className="text-fg">{"  --branch master --branch main"}</span>
           </Terminal>
-          <p className="mt-4 text-sm leading-relaxed text-muted">
+
+          <Terminal
+            label="bash"
+            copyValue={CI_SNIPPET_GH}
+            copyAriaLabel="Copy the GitHub-to-GitHub command"
+          >
+            <span className="text-muted">
+              {"# GitHub → GitHub, auto-handle >100 MB files, and skip the rewrite if you're not a contributor:"}
+            </span>
+            {"\n"}
+            <span className="text-acc-bright">vector-migrate</span>
+            <span className="text-fg">{" --force \\"}</span>
+            {"\n"}
+            <span className="text-fg">{"  --mode c \\"}</span>
+            {"\n"}
+            <span className="text-fg">{"  --source "}</span>
+            <span className="text-muted">{`"git@github.com:old-org/repo.git"`}</span>
+            <span className="text-fg">{" \\"}</span>
+            {"\n"}
+            <span className="text-fg">{"  --dest   "}</span>
+            <span className="text-muted">{`"git@github.com:you/repo.git"`}</span>
+            <span className="text-fg">{" \\"}</span>
+            {"\n"}
+            <span className="text-fg">{"  --on-large-file strip \\"}</span>
+            {"\n"}
+            <span className="text-fg">{"  --skip-identity"}</span>
+          </Terminal>
+
+          <p className="text-sm leading-relaxed text-muted">
             <a
               href={`${REPO_URL}#non-interactive--scripted-runs`}
               {...EXTERNAL_LINK_PROPS}
